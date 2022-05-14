@@ -21,6 +21,8 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
+import { getUserData, isSignedIn } from "@/utils/auth";
+import { getStxAddress } from "@stacks/connect";
 
 export default function NavBar() {
   const { isOpen, onToggle } = useDisclosure();

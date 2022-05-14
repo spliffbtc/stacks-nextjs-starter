@@ -2,10 +2,11 @@ import Head from "next/head";
 import { AppProps } from "next/app";
 import { Toaster } from "react-hot-toast";
 import NavBar from "@/layout/NavBar";
+import WelcomeHeader from "@/layout/WelcomeHeader";
 import Footer from "@/layout/Footer";
 import theme from "@/styles/theme";
 import { ChakraProvider, Box } from "@chakra-ui/react";
-
+import { isSignedIn } from "@/utils/auth";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -18,6 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Box>
         <Toaster />
       </Box>
+      {isSignedIn() ? <WelcomeHeader /> : <></>}
       <Component {...pageProps} />
       <Footer />
     </ChakraProvider>
