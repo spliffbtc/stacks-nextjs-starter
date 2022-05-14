@@ -16,9 +16,14 @@ function WelcomeHeader(): ReactElement {
   const [welcomeUser, setWelcomeUser] = useState("");
   useEffect(
     () =>
-      data.names
-        ? setWelcomeUser(data.names)
-        : setWelcomeUser(getUserData().profile.stxAddress.mainnet),
+      isSignedIn()
+        ? data.names
+          ? // Set BNS
+            setWelcomeUser(data.names)
+          : // Set STX Address
+            setWelcomeUser(getUserData().profile.stxAddress.mainnet)
+        : // Set Nothing
+          setWelcomeUser(""),
     []
   );
 
