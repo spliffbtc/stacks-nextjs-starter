@@ -7,7 +7,7 @@ import { authenticate, isSignedIn } from "@/utils/auth";
 import { mintContract } from "@config";
 import { Button } from "@chakra-ui/react";
 
-export function SubmitMint() {
+export function SubmitMint(props: any) {
   // Network
   const network = new StacksMainnet();
   // Mint
@@ -17,6 +17,16 @@ export function SubmitMint() {
 
   // `functionArgs` is a list of `ClarityValue` objects
   const functionArgs = [uintCV(0)];
+
+  // Button Text
+  const [buttonText, setButtonText] = useState("Connect Stacks Wallet");
+  useEffect(
+    () =>
+      isSignedIn()
+        ? setButtonText("Mint Now")
+        : setButtonText("Connect Stacks Wallet"),
+    []
+  );
 
   // Create: Options
   const options = {
@@ -66,13 +76,6 @@ export function SubmitMint() {
       ));
     },
   };
-
-  const [buttonText, setButtonText] = useState("Connect Stacks Wallet");
-  useEffect(
-    () =>
-      isSignedIn() ? setButtonText("Sign Out") : setButtonText("Mint Now"),
-    []
-  );
 
   return (
     <Button
