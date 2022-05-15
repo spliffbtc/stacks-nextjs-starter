@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) and integrated with `Stacks.js`.
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/05fe79b0-5fa8-4fe6-8fc1-677542aabf0f/deploy-status)](https://app.netlify.com/sites/stacks-nextjs-starter/deploys)
+
 ## Getting Started
 
 First, run the development server:
