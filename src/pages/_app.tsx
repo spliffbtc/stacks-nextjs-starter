@@ -19,7 +19,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Box>
         <Toaster />
       </Box>
-      {isSignedIn() ? <WelcomeHeader /> : <></>}
       <Component {...pageProps} />
       <Footer />
     </ChakraProvider>

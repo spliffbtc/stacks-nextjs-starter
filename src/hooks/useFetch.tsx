@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 export const useFetch = (
   req: RequestInfo,
   ref: { current: boolean },
-  initialValue: any,
+  initialValue: any
 ) => {
   const [data, setData] = useState(initialValue);
   const [loading, setLoading] = useState(true);

@@ -1,9 +1,15 @@
 import React, { ReactElement, useState, useEffect } from "react";
-import { getUserData, isSignedIn } from "@/utils/auth";
+import { getUserData, isSignedIn, userSession } from "@/utils/auth";
 import { useFetch } from "@/hooks/useFetch";
-import { Grid, Text } from "@chakra-ui/react";
+import styles from "@/styles/Home.module.css";
+import { Box, Heading, Grid, Link, Text } from "@chakra-ui/react";
+import { getStxAddress } from "@stacks/connect";
 
 function WelcomeHeader(): ReactElement {
+  const [stxAddress, setStxAddress] = useState("");
+  const [BNS, setBNS] = useState("");
+  const [welcomeUser, setWelcomeUser] = useState("");
+
   // Get BNS
   const { data, error, loading } = useFetch(
     `https://stacks-node-api.mainnet.stacks.co/v1/addresses/stacks/${
@@ -11,39 +17,37 @@ function WelcomeHeader(): ReactElement {
     }
         `,
     { current: true },
-    {}
+    { 1: "BNS" }
   );
-  const [welcomeUser, setWelcomeUser] = useState("");
+
+  // Set Welcome User
   useEffect(
     () =>
       isSignedIn()
         ? data.names
           ? // Set BNS
-            setWelcomeUser(data.names)
+            setWelcomeUser(BNS)
           : // Set STX Address
-            setWelcomeUser(getUserData().profile.stxAddress.mainnet)
+            setWelcomeUser(stxAddress)
         : // Set Nothing
           setWelcomeUser(""),
-    []
+    [data.names]
   );
 
-  return (
-    <>
-      {WelcomeHeader}
-
-      <Text variant="body2">
-        Welcome,
-        <a
-          href={`https://explorer.stacks.co/address/${
-            getUserData().profile.stxAddress.mainnet
-          }?chain=mainnet`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Text>{welcomeUser}</Text>
-        </a>
-      </Text>
-    </>
+  return isSignedIn() ? (
+    <Heading as="h1" className={styles.title}>
+      Welcome,
+      <Link
+        href={`https://explorer.stacks.co/address/${stxAddress}?chain=mainnet`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {" "}
+        {welcomeUser}
+      </Link>
+    </Heading>
+  ) : (
+    <></>
   );
 }
 
