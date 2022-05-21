@@ -13,14 +13,12 @@ export function ConnectDiscord() {
   }, [session]);
 
   return (
-    <>
-      <Button
-        onClick={() => {
-          session ? signOut() : signIn();
-        }}
-      >
-        {buttonText}
-      </Button>
-    </>
+    <Button
+      onClick={() => {
+        session ? signOut() : signIn();
+      }}
+    >
+      {buttonText}
+    </Button>
   );
 }
