@@ -28,6 +28,7 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 - prisma
 - mongodb
 - eslint
+- next-auth
 
 ## Learn More about Stacks.js
 
