@@ -27,6 +27,7 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 - discord.js
 - prisma
 - mongodb
+- eslint
 
 ## Learn More about Stacks.js
 
