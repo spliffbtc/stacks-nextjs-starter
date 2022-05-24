@@ -20,7 +20,13 @@ You can start editing the page by modifying `pages/index.tsx`. The page auto-upd
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
+## Technologies Used
 
+- next.js
+- stacks.js
+- discord.js
+- prisma
+- mongodb
 
 ## Learn More about Stacks.js
 
@@ -29,14 +35,6 @@ To learn more about Stacks.js, take a look at the following resources:
 - [Stacks.js](https://www.hiro.so/stacks-js) - learn about Stacks.js features and API.
 - [Example Apps](https://docs.hiro.so/example-apps) - View example apps using Stacks.js.
 - [Stacks.js GitHub repository](https://github.com/hirosystems/stacks.js)
-
-## Technologies Used
-
-- next.js
-- stacks.js
-- discord.js
-- prisma
-- mongodb
 
 ## Learn More about Next.js
 
